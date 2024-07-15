@@ -31,7 +31,6 @@
           <td class="text-center">{{ user.workouts.length }}</td>
           <td class="text-center">{{ getTotalMinutes(user.workouts) }}</td>
         </tr>
-        <!-- Add a message when there are no users -->
         <tr *ngIf="displayedWorkouts.length === 0">
           <td colspan="4" class="text-center">No workouts found.</td>
         </tr>
@@ -49,7 +48,7 @@
     </div>
     <div class="items-per-page">
       <label for="itemsPerPage" class="block">Items per page:</label>
-      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="updateItemsPerPage($event)" class="items-per-page-selector">
+      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" class="items-per-page-selector">
         <option *ngFor="let option of itemsPerPageOptions">{{ option }}</option>
       </select>
     </div>

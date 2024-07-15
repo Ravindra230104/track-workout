@@ -18,7 +18,7 @@ export class WorkoutListComponent implements OnInit, OnChanges {
   currentPage: number = 1;
   itemsPerPage: number = 5;
   totalPages: number = 1;
-  itemsPerPageOptions: number[] = [3, 5, 10];
+  itemsPerPageOptions: number[] = [5];
   totalPagesArray: number[] = [];
 
   constructor(private dataService: DataService) {}
@@ -90,13 +90,6 @@ export class WorkoutListComponent implements OnInit, OnChanges {
     this.updatePaginationNumbers();
   }
 
-  updateItemsPerPage(event: Event) {
-    const target = event.target as HTMLSelectElement;
-    this.itemsPerPage = parseInt(target.value, 10);
-    this.currentPage = 1; // Reset to the first page when changing items per page
-    this.updatePagination();
-  }
-
   getTotalMinutes(workouts: { type: string, minutes: number }[]): number {
     return workouts.reduce((total, workout) => total + workout.minutes, 0);
   }
@@ -123,8 +116,3 @@ export class WorkoutListComponent implements OnInit, OnChanges {
     this.totalPagesArray = Array(this.totalPages).fill(0).map((x, i) => i + 1);
   }
 }
-
- 
- 
-
-  
