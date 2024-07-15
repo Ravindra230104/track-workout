@@ -4,7 +4,7 @@
 
 ## This repository is the assignment given by Fyle.
 
-# Here is the Code Coverage report of the project
+### Here is the Code Coverage report of the project
 1) To run tests and view coverage, use the following command:
     ```
     ng test --code-coverage
