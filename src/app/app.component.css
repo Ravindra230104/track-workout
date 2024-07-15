@@ -1,0 +1,22 @@
+.main-container {
+    display: flex;
+  }
+  
+  .user-list-container {
+    width: 30%;
+    padding: 1rem;
+    border-right: 1px solid #ddd;
+  }
+  
+  .workout-chart-container {
+    width: 70%;
+    padding: 1rem;
+  }
+
+  .fallback-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  

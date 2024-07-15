@@ -1,0 +1,57 @@
+<div class="workout-list-wrapper">
+  <div class="input-container">
+    <input type="text" placeholder="Search by name" [(ngModel)]="searchTerm" (input)="updatePagination()" class="shadow-sm sm:text-sm border-gray-300 rounded-md">
+    <div class="filter-container yellow-box">
+      <label class="filter-label">Filter by workout type:</label>
+      <select [(ngModel)]="filterType" (change)="updatePagination()" class="shadow-sm sm:text-sm border-gray-300 rounded-md">
+        <option value="">All</option>
+        <option *ngFor="let type of workoutTypes">{{ type }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Workout Type</th>
+          <th class="text-center">Number of Workouts</th>
+          <th class="text-center">Total Workout Minutes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of displayedWorkouts">
+          <td>{{ user.name }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let workout of user.workouts">{{ workout.type }}</li>
+            </ul>
+          </td>
+          <td class="text-center">{{ user.workouts.length }}</td>
+          <td class="text-center">{{ getTotalMinutes(user.workouts) }}</td>
+        </tr>
+        <!-- Add a message when there are no users -->
+        <tr *ngIf="displayedWorkouts.length === 0">
+          <td colspan="4" class="text-center">No workouts found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <div class="pagination-buttons">
+      <button (click)="prevPage()" [disabled]="currentPage === 1" class="pagination-button">Previous</button>
+      <div class="pagination-numbers">
+        <span *ngFor="let page of totalPagesArray" class="pagination-number" [class.active]="page === currentPage" (click)="goToPage(page)">{{ page }}</span>
+      </div>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="pagination-button">Next</button>
+    </div>
+    <div class="items-per-page">
+      <label for="itemsPerPage" class="block">Items per page:</label>
+      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="updateItemsPerPage($event)" class="items-per-page-selector">
+        <option *ngFor="let option of itemsPerPageOptions">{{ option }}</option>
+      </select>
+    </div>
+  </div>
+</div>

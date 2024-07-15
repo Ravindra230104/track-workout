@@ -1,0 +1,9 @@
+<div class="main-container">
+  <div class="section form-wrapper">
+    <app-user-input (workoutAdded)="onWorkoutAdded()"></app-user-input>
+  </div>
+
+  <div class="section workout-list-wrapper">
+    <app-workout-list [refresh]="refresh"></app-workout-list>
+  </div>
+</div>
