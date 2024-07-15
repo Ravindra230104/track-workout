@@ -16,6 +16,7 @@
     Functions: 21.42% (6/28)
     Lines: 37.33% (28/75)
     ```
+ 3) I achieved a 100% success rate by executing and successfully accomplishing all four tasks
 
 # Build With
 - **Angular:** The web framework used.
